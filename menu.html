@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durungawan</title>
+    <link href="style_durungawan.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<style>
+
+header{
+  background: #151515;
+	height: 80px;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto Condensed", sans-serif;
+}
+
+body{
+	justify-content: center;
+	align-items: center;
+	background: #e1dcc9;
+}
+
+.container{
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 60vh;
+}
+
+.product .product-card{
+	z-index: 1;
+	background: #1D212B;
+	position: relative;
+	width: 300px;
+	height: 400px;
+	margin: 40px;
+	border-radius: 10px;
+}
+
+.product .product-card:before{
+	content: '';
+	background: rgba(255, 255, 255, 0.1);
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.product .product-card .product-img{
+	z-index: 1;
+	position: absolute;
+	max-width: 350px;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.product .product-card .name{
+	z-index: 2;
+	color: #fff;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 130px;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+.product .product-card .price{
+	z-index: 2;
+	color: #fff;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	bottom: 80px;
+	font-size: 30px;
+	font-weight: 300;
+}
+
+.product .product-card .popup-btn{
+	z-index: 2;
+	color: #fff;
+	background: #c24229;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 14px;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+	padding: 10px 15px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.product .product-card .popup-btn:hover{
+	color: #fff;
+	background: var(--black);
+	transition: 0.4s;
+}
+
+.product .popup-view{
+	z-index: 2;
+	background: rgba(255, 255, 255, 0.5);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.product .popup-view.active{
+	opacity: 1;
+	visibility: visible;
+}
+
+.product .popup-card{
+	position: relative;
+	display: flex;
+	width: 800px;
+	height: 500px;
+	margin: 20px;
+}
+
+.product .popup-card .product-img{
+	z-index: 2;
+	background: #1D212B;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 45%;
+	height: 90%;
+	transform: translateY(25px);
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.product .popup-card .product-img img{
+	z-index: 2;
+	position: relative;
+	width: 450px;
+	left: -50px;
+}
+
+.product .popup-card .info{
+	z-index: 2;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	width: 55%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 40px;
+	border-radius: 10px;
+}
+
+.product .popup-card .close-btn{
+	color: #555;
+	z-index: 3;
+	position: absolute;
+	right: 0;
+	font-size: 20px;
+	margin: 20px;
+	cursor: pointer;
+}
+
+.product .popup-card .info h2{
+	font-size: 40px;
+	line-height: 20px;
+	margin: 10px;
+  color: #151515;
+}
+
+.product .popup-card .info h2 span{
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+  	color: #151515;
+}
+
+.product .popup-card .info p{
+	font-size: 20px;
+	margin: 10px;
+  color: #151515;
+}
+
+.product .popup-card .info .price{
+	font-size: 25px;
+	font-weight: 700;
+	margin: 10px;
+  color: #151515;
+}
+
+.product .popup-card .info .add-cart-btn{
+	color: #fff;
+	background: #009DD2;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 10px auto;
+	padding: 10px 50px;
+	border-radius: 20px;
+}
+
+@media (max-width: 900px){
+	.product .popup-card{
+		flex-direction: column;
+		width: 550px;
+		height: auto;
+	}
+
+	.product .popup-card .product-img{
+		z-index: 3;
+		width: 100%;
+		height: 200px;
+		transform: translateY(0);
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+
+	.product .popup-card .product-img img{
+		left: initial;
+		max-width: 100%;
+	}
+
+	.product .popup-card .info{
+		width: 100%;
+		height: auto;
+		padding: 20px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
+	.product .popup-card .info h2{
+		margin: 20px 5px 5px 5px;
+		font-size: 25px;
+    color: #151515;
+	}
+
+	.product .popup-card .info h2 span{
+		font-size: 10px;
+    color: #151515;
+	}
+
+	.product .popup-card .info p{
+		margin: 5px;
+		font-size: 13px;
+    color: #151515;
+	}
+
+	.product .popup-card .info .price{
+		margin: 5px;
+		font-size: 30px;
+    color: #151515;
+	}
+
+	.product .popup-card .info .add-cart-btn{
+		margin: 5px auto;
+		padding: 5px 40px;
+		font-size: 14px;
+	}
+
+	.product .popup-card .close-btn{
+		z-index: 4;
+	}
+}
+
+</style>
+
+<body>
+
+  <header>
+    <div class="bx bx-menu" id="menu-icon">
+      </div>
+    <a href="index_durungawan.html" class="logo"><i class='bx bxs-bowl-hot'></i><span> Durungawan</span></a>
+    <ul class="navbar">
+      <li>
+        <a class="active" href="index_durungawan.html">Home</a>
+      </li>
+      <li>
+        <a class="active" href="our-story.html">Our Story</a>
+      </li>
+      <li>
+        <a class="active" href="featured.html">Featured</a>
+      </li>
+      <li>
+        <a class="active" href="#">Menu</a>
+      </li>
+      <li>
+        <a class="active" href="team.html">Team</a>
+      </li>
+    </ul>
+    <div class="main">
+      <a href="book-now.html"><i class="ri-bookmark-fill"></i> Book Now</a>
+    </div>
+  </header>
+  <br>
+  <br>
+
+  <section class="menu_land" id="menu-land">
+    <div class="menu-text">
+      <h1>MENU</h1>
+      <span>Durungawan is a progression of rare and beautiful ingredients where texture, flavour and harmony is paramount.
+      <br><br>
+      <p>Continually inspired by nature, the creative process for chef Margot begins in working closely with the farmers, fishermen, producers and artisans who cultivate bespoke produce exclusively for Durungawan. For each dish, the growth of every element and the selection of every ceramic piece is carefully considered and crafted for its role in the dining experience.</span>
+      <br><br>
+      <p>Durungawan brings a personal, interactive passage for diners through our culinary evolution.</p>
+      <br><br>
+      <a href="#menu" class="add-cart-btn">VIEW MENU</a>
+    </div>
+    <div class="menu-img">
+      <img src="durungawan_images/menu_placeholder.jpg">
+    </div>
+  </section>
+
+ <!-- Menu Container -->
+	<div class="w3-container w3-black" id="menu">
+		<div class="w3-content">
+		<div class="w3-row">
+			<a href="javascript:void(0)" onclick="openMenu(event, 'EightCourse');" id="myLink">
+			<div class="w3-col tablink w3-hover-red">EIGHT-COURSE MENU</div>
+			</a>
+			<a href="javascript:void(0)" onclick="openMenu(event, 'SixCourse');">
+			<div class="w3-col tablink w3-hover-red">SIX-COURSE MENU</div>
+			</a>
+			<a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+			<div class="w3-col tablink w3-hover-red">DRINKS</div>
+			</a>
+		</div>
+
+		<div id="EightCourse" class="w3-container menu w3-padding-32 course-text">
+			<p>
+			The eight-course menu is available at lunch and dinner.
+			<br><br>
+			<h2>EIGHT - COURSE<sup>*</sup></h2>
+			<br>
+			<b>Kamote</b>
+			<br>
+			sweet potato, parsnip
+			<br>
+			dalandan, ancho-honey, fennel
+			<br><br>
+			<b>Jackfruits in coconut</b>
+			<br>
+			unripe jackfruit, water chestnut, coconut milk
+			<br>
+			fermented krill, spiced vinegar, chilli
+			<br><br>
+			<b>Kinilaw</b>
+			<br>
+			narrow-barred Spanish mackerel, spiced vinegar
+			<br>
+			calamansi, ginger, chilli, red onion
+			<br><br>
+			<b>Sisig</b>
+			<br>
+			pork flesh & organs, white onion, infused butter
+			<br>
+			confit pig, chilli
+			<br><br>
+			<b>Adobo</b>
+			<br>
+			pork, soy sauce, pineapple, rosemary, nuts
+			<br>
+			honeycomb, white chocolate
+			<br><br>
+			<b>Tablea</b>
+			<br>
+			peanut, tablea, dulce de leche, 70% couverture
+			<br>
+			cocoa butter, spiced mango
+			<br><br>
+			<b>Brazo</b>
+			<br>
+			poached meringue, custard apple
+			<br>
+			guava, custard, vanilla, maltose tuile, almonds 
+			<br><br>
+			<b>Sour candy & rice</b>
+			<br>
+			mandarin, nitro yoghurt foam
+			<br>
+			rice bubble disc, citric acid, candied orange zest
+			<br><br><br><br>
+			<em>* Our menus are seasonal and change regularly.</em>
+			<br><br>
+			</p>
+		</div>
+
+		<div id="SixCourse" class="w3-container menu w3-padding-32 course-text">
+			<p>
+			The six-course menu is available at lunch and dinner.
+			<br><br>
+			<h2>SIX - COURSE<sup>*</sup></h2>
+			<br>
+			<b>Kamote</b>
+			<br>
+			sweet potato, parsnip
+			<br>
+			dalandan, ancho-honey, fennel
+			<br><br>
+			<b>Kinilaw</b>
+			<br>
+			narrow-barred Spanish mackerel, spiced vinegar
+			<br>
+			calamansi, ginger, chilli, red onion
+			<br><br>
+			<b>Sisig</b>
+			<br>
+			pork flesh & organs, white onion, infused butter
+			<br>
+			confit pig, chilli
+			<br><br>
+			<b>Adobo</b>
+			<br>
+			pork, soy sauce, pineapple, rosemary, nuts
+			<br>
+			honeycomb, white chocolate
+			<br><br>
+			<b>Calamansi meringue tart</b>
+			<br>
+			calamansi, torched meringue
+			<br>
+			peanut shortcrust, milk couverture, ginger jam
+			<br><br>
+			<b>Brazo</b>
+			<br>
+			poached meringue, custard apple
+			<br>
+			guava, custard, vanilla, maltose tuile, almonds
+			<br><br><br><br>
+			<em>* Our menus are seasonal and change regularly.</em>
+			<br><br>
+			</p>
+		</div>
+
+		<div id="Drinks" class="w3-container menu w3-padding-32 course-text">
+			<p class="course-text course-drinks">
+			Our beverage collection showcases a wide range of choices while also providing a unique experience for each one. We have channeled
+			<br>
+			our own fresh new ideas into every house-made drink, serving both the booze for the grown-ups and the splash for the kiddies.
+			<br><br>
+			In collaboration with Hapag MNL, we hope you enjoy every sip.
+			<br><br>
+			<a href="https://uploads-ssl.webflow.com/63d37715de61caf6f8a6f83d/63dc6cb77164a2144fc5fefe_Bev%20Menu%20(Feb%202023).pdf" target="_blank" class="btn">VIEW BEVERAGE LIST</a>
+			<br><br>
+			</p>
+		</div>
+		</div>
+	</div>	
+
+    <div class="container">
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Appetizers</h2>
+				<span class="price">Kamote</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/roots-nobg.png" class="product-img" style="height: 70%; max-width: 150%">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/kamote.webp">
+					</div>
+					<div class="info">
+						<h2>Kamote<br><span>Appetizers</span></h2>
+						<p>In this dish, we present the versatility of the sweet potato through the delivery of the root vegetable in different forms and textures.</p>
+						<span class="price">Components:</span>
+						<p>smoked sweet potato. dehydrated sweet potato crisps. sweet potato puree. parsnip crisps. confit sweet potato. sweet potato leaf chips. sweet potato crumble. ancho-honey & dalandan sauce. dehydrated fennel. segmented dalandan.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Appetizers</h2>
+				<span class="price">Jackfruits in coconut</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/ginataan.png" class="product-img">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/menu_placeholder.jpg" style="width: 130%;">
+					</div>
+					<div class="info">
+						<h2>Jackfruits in coconut<br><span>Appetizers</span></h2>
+						<p>We really love the flavor profile of a famous dish from Romblon, the ginataang langka. Our version showcases one of our most prominent local produce while also showing how we utilize it with both the knowledge of traditional techniques and a modern mind.</p>
+						<span class="price">Components:</span>
+						<p>unripe jackfruit and water chestnut stewed in coconut milk. dehydrated coconut shards. fermented krill. caviar.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Entrees</h2>
+				<span class="price">Kinilaw</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/kinilaw-removebg-preview.png" class="product-img" style="max-width: 180%;">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/kinilaw.jpg" style="max-height: 110%;">
+					</div>
+					<div class="info">
+						<h2>Kinilaw<br><span>Entrees</span></h2>
+						<p>Sometimes, cooking doesn't really give the most justice to maximize the experience of eating fish. Kilawin is a traditional Filipino dish that uses raw fish marinated in spiced vinegar, and our version consists of ingredients of only the best quality.</p>
+						<span class="price">Components:</span>
+						<p>narrow-barred Spanish mackerel. spiced vinegar. calamansi. ginger. chilli. red onion.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Entrees</h2>
+				<span class="price">Sisig</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/sisig-removebg.png" class="product-img" style="max-width: 140%;">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/lechon.jpg" style="width: 150%; height: 100%;">
+					</div>
+					<div class="info">
+						<h2>Sisig<br><span>Entrees</span></h2>
+						<p>Taking inspiration from one of our most popular local food, our Sisig retains its original identity while amplifying the most important flavor profiles. Also, our Sisig borrows a component from another popular dish, the lechon.</p>
+						<span class="price">Components:</span>
+						<p>smoked pig jowl. white onion. crispy pork skin. confit pork belly. clarified pork butter. calamansi sauce.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Desserts</h2>
+				<span class="price">Adobo</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/adobo-nobg.png" class="product-img">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/adobo-full.jpg" style="width: 128%;">
+					</div>
+					<div class="info">
+						<h2>Adobo<br><span>Desserts</span></h2>
+						<p>Our most popular and showstopping dessert, we believe that our Adobo is the epitome of our essence as food artists. Completely novel yet also traditional. A journey over borders & generations.</p>
+						<span class="price">Components:</span>
+						<p>soy-braised pork belly. poached pineapple with soy. rosemary ice cream. mixed nut and white chocolate crumble. dehydrated pineapple honeycomb.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Desserts</h2>
+				<span class="price">Tablea</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/tsoko-removebg.png" class="product-img">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/choco.jpg" style="height: 100%; width: 130%;">
+					</div>
+					<div class="info">
+						<h2>Tablea<br><span>Desserts</span></h2>
+						<p>To celebrate the presence of tablea in our culture, we decided to simulate the experience of opening a real cocoa pod. From champorado to the suman of Leyte and to many other local dishes, we would like to acknowledge the role tablea plays in making our rich food culture even more special.</p>
+						<span class="price">Components:</span>
+						<p>peanut sable. tablea cremeux. dulce de leche. 70% couverture shell. spiced mango</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Desserts</h2>
+				<span class="price">Brazo</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/snow_egg.png" class="product-img">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/snow-full.jpg" style="max-height: 110%;">
+					</div>
+					<div class="info">
+						<h2>Brazo<br><span>Desserts</span></h2>
+						<p>The classic Brazo de mercedes, deconstructed and reintroduced. Unlike the traditional cake, our version combines the sweet subtlety of custard apple with the bright funkiness of guava.</p>
+						<span class="price">Components:</span>
+						<p>guava granita. custard apple ice cream. poached meringue. maltose tuiles. vanilla cream. guava puree.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Desserts</h2>
+				<span class="price">Sour candy & rice</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/bilog-removebg.png" class="product-img" style="height: 70%; width: 150%;">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/orange.jpg" style="height: 100%; width: 140%;">
+					</div>
+					<div class="info">
+						<h2>Sour candy & rice<br><span>Desserts</span></h2>
+						<p>A seemingly innocent mandarin sphere that packs a really strong punch! You'll immediately be reminded of a childhood favorite known for its extreme sourness. Although we have made the experience a lot more bearable, this dessert will still definitely be unforgettable.</p>
+						<span class="price">Components:</span>
+						<p>mandarin cream. citrus fluid gel. nitro yoghurt foam. rice bubble disc. white cocoa butter coat. sour candy powder. candied orange zest</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="product-card">
+				<h2 class="name">Desserts</h2>
+				<span class="price">Calamansi meringue tart</span>
+				<a class="popup-btn">Quick View</a>
+				<img src="durungawan_images/tart-removebg-preview.png" class="product-img">
+			</div>
+			<div class="popup-view">
+				<div class="popup-card">
+					<a><i class="fas fa-times close-btn"></i></a>
+					<div class="product-img">
+						<img src="durungawan_images/tart.jpg">
+					</div>
+					<div class="info">
+						<h2>Calamansi meringue <br><br>tart<br><span>Desserts</span></h2>
+						<p>Powerful but soothing, our calamansi meringue tart is the perfect mix of refined and comfort eating; with the peanut pastry as a wonderful base, the calamansi curd and its zing, the chocolate and its sweetness, and the ginger jam to balance it all off.</p>
+						<span class="price">Components:</span>
+						<p>calamansi curd. torched meringue. peanut shortcrust pastry. tempered chocolate. chocolate gaanche. ginger jam.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <br>
+  <section class="footer" id="footer">
+    <span class="footlogo">Durungawan</span>
+    
+    
+    <div class="footer-container">
+      
+      <div>
+        <h3>Navigation Links</h3>
+        <a href="our-story.html" class="footer-link">Our Story</a><br>
+        <a href="featured.html" class="footer-link">Featured</a><br>
+        <a href="menu.html" class="footer-link">Menu</a><br>
+        <a href="team.html" class="footer-link">Team</a><br>
+        <a href="book-now.html" class="footer-link">Reservations</a><br>
+        <a href="" class="footer-link">Syntax Explorer</a><br>
+      </div>
+      <div>
+        
+        <h3>Get the latest news and offers from us</h3>
+        <input type="email" placeholder="Enter your email">
+        <ul>
+          <li><a href="" class="bx bxl-twitter"></a></li>
+          <li><a href="" class="bx bxl-instagram"></a></li>
+          <li><a href="" class="bx bxl-facebook-circle"></a></li>
+          <li><a href="" class="bx bxl-linkedin-square"></a></li>
+        </ul>
+        
+        
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <span>+63 995 9616683</span>
+        <span>859 1234</span>
+        <span><a href="mailto:durungawan@gmail.com">durungawan@gmail.com</a></span>
+        <span>durungawan-restaurants.com.ph</span>
+      </div>
+    </div>
+    <br>
+    <p>&copy;2023 Reserved by Syntax Explorer</p>
+  </section>
+  
+</body>
+
+	<script type="text/javascript" src="script_durungawan.js"></script>
+
+	<script type="text/javascript">
+	var popupViews = document.querySelectorAll('.popup-view');
+	var popupBtns = document.querySelectorAll('.popup-btn');
+	var closeBtns = document.querySelectorAll('.close-btn');
+
+	//js for quick view button
+	var popup = function(popupClick) {
+		popupViews[popupClick].classList.add('active');
+	}
+
+	popupBtns.forEach((popupBtn, i) => {
+		popupBtn.addEventListener("click", () => {
+			popup(i);
+		});
+	});
+
+	//js for close button
+	closeBtns.forEach((closeBtn) => {
+		closeBtn.addEventListener("click", () => {
+			popupViews.forEach((popupView) => {
+				popupView.classList.remove('active');
+			});
+		});
+	});
+	</script>
+<!-- scroll to top -->
+<a href="#"><button class="topbtn" title="Back to Top"><i class="fa-solid fas fa-angle-up"></i></button></a>
+</body>
+
+</html>

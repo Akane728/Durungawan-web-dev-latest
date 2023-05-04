@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durungawan</title>
+  <link rel="stylesheet" type="text/css" href="style_durungawan.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<style>
+header{
+      background: #151515;
+		  height: 80px;
+    }
+    
+.book-now{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    /* padding: 80px; */
+    margin-top: 50px;
+    
+}
+
+.book-now .image{
+    width: 55%;
+    background: url('durungawan_images/reservations-photo-etonalangba.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 9rem ;
+}
+
+.book-now .form{
+    background: #151515;
+    width: 45%;
+    padding: 9rem 7%;
+}
+
+.book-now .form-holder{
+    display: flex;
+    grid-gap: 5rem;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
+.book-now .form form input, .book-now .form form select, select{
+    display: block;
+    margin: 2rem 0;
+    width: 100%;
+    background: none;
+    border-bottom: .1rem solid #b7b3b3;
+    color: #b7b3b3;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.book-now .form form input::placeholder{
+    color: #b7b3b3;
+}
+
+
+.heading{
+    text-align: center;
+    color: var(--red);
+    font-family: 'Cinzel';
+    font-size: 4.5rem;
+    padding-bottom: 1rem;
+    letter-spacing: 1.3px;
+    flex-wrap: wrap;
+    
+}
+.sub-heading{
+    text-align: center;
+    font-size: 2.5rem;
+    padding: .5rem 2rem;
+    margin-bottom: 2rem;
+    color: var(--yellow);
+    display: inline-block;
+}
+
+
+
+.submitted .submit-overlay{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  display: none;
+}
+
+.submitted .content{
+  position: absolute;
+  /* top: 20%;
+  left: 20%;
+  right: 80%;
+  bottom: 60%; */
+  margin: 20% 75% 60% 15%;
+  transform: translate(50%, -50%) scale(0);
+  background-color: #151515;
+  width: 40rem;
+  height: 20rem;
+  z-index: 2;
+  text-align: center;
+  padding: 5rem;
+  box-sizing: border-box;
+  
+}
+
+.btn{
+  z-index: 1;
+}
+.topbtn{
+  z-index: 0;
+}
+.submitted .content p{
+  font-size: 1.5rem;
+}
+
+.submitted .close-btn{
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  color: var(--red);
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+}
+
+.btn-holder a{
+  margin: 2rem;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.submitted.active .submit-overlay{
+  display: block; 
+}
+
+.submitted.active .content{
+  transition: all 200ms ease-in-out;
+  transform: translate(50%, -50%) scale(1);
+}
+
+.submit-view.active{
+	opacity: 1;
+	visibility: visible;
+}
+.popup-btn{
+  margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.5rem;
+	  font-weight: 400;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    padding: .3rem 2rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.w3-col {
+    float: left;
+    width: 14.286%;
+    padding: 12px 24px !important;
+    
+}
+.w3-container .w3-row{
+	color: #fff !important;
+	font-size: 1.5rem !important;
+  flex-wrap: wrap;
+}
+.tab{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 5rem !important; 
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.rappler.com/tachyon/2021/12/smtown-smcu-express.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position: center center;
+}
+.w3-padding-32 {
+	padding: 0 !important;
+  height: 80%;
+	
+}
+.tab .image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position: center center;
+  padding-top: 0 ;
+  width: 40%;
+  height: 30rem;
+}
+hr {
+  border: none;
+  border-top: 2px solid var(--black);
+  margin: 6rem auto;
+  width: 60%;
+  align-self: center;
+  
+}
+.locations .loc-head h1{
+  text-align: center;
+  color: var(--black);
+  font-family: 'Cinzel';
+  font-size: 4.5rem;
+  padding-bottom: 1.5rem;
+  letter-spacing: 1.3px;
+  flex-wrap: wrap;
+}
+#Ortigas .tab .image{
+  background: url("https://nolisoli.ph/wp-content/uploads/2019/11/Gallery-by-Chele-recolor-2.jpg");
+}
+
+#Makati .tab .image{
+  background: url("https://images.adsttc.com/media/images/63bc/2a73/f7e2/c003/d9a9/7a66/newsletter/sm-kwangya-at-seoul-concept-store-niiiz-design-lab_19.jpg?1673276054");
+}
+
+#Pasay .tab .image{
+  background: url("https://images.adsttc.com/media/images/63bc/2a73/f7e2/c003/d9a9/7a66/newsletter/sm-kwangya-at-seoul-concept-store-niiiz-design-lab_19.jpg?1673276054");
+}
+
+#Alabang .tab .image{
+  background: url("https://images.adsttc.com/media/images/63bc/2a73/f7e2/c003/d9a9/7a66/newsletter/sm-kwangya-at-seoul-concept-store-niiiz-design-lab_19.jpg?1673276054");
+}
+
+#BGC .tab .image{
+  background: url("https://images.summitmedia-digital.com/esquiremagph/images/2018/12/04/THE-PEAK_COVER_DEC2018.jpg");
+}
+
+#Cebu .tab .image{
+  background: url("https://images.adsttc.com/media/images/63bc/2a73/f7e2/c003/d9a9/7a66/newsletter/sm-kwangya-at-seoul-concept-store-niiiz-design-lab_19.jpg?1673276054");
+}
+
+#Davao .tab .image{
+  background: url("https://images.adsttc.com/media/images/63bc/2a73/f7e2/c003/d9a9/7a66/newsletter/sm-kwangya-at-seoul-concept-store-niiiz-design-lab_19.jpg?1673276054");
+}
+.tab .tab-text{
+  width: 60%;
+  padding: 3.5rem 7%;  
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1550px){
+      html{
+        font-size: 75%;
+      }
+      header{
+        padding: 1rem 2rem;;
+      }
+    }
+    @media (max-width: 1200px){
+      html{
+        font-size: 55%;
+      }
+      .submitted .content{
+        margin: 30% 80% 70% 20%;;
+      }
+    }
+    @media (max-width: 860px){
+      .book-now .image{
+        width: 0%;
+        
+      }
+      .book-now .form{
+        width: 100%;
+      }
+      .book-now .form .form-holder{
+        display: block;
+      }
+      /* .book-now{
+        padding: 30px;
+      } */
+      .submitted .content{
+        margin: 50% 100% 50% 0%;;
+      }
+    }
+</style>
+<!-- BOOK NOW -->
+<body>
+    <header>
+      <div class="bx bx-menu" id="menu-icon">
+        </div>
+      <a href="index_durungawan.html" class="logo"><i class='bx bxs-bowl-hot'></i><span> Durungawan</span></a>
+      <ul class="navbar">
+        <li>
+          <a class="active" href="index_durungawan.html">Home</a>
+        </li>
+        <li>
+          <a class="active" href="our-story.html">Our Story</a>
+        </li>
+        <li>
+          <a class="active" href="featured.html">Featured</a>
+        </li>
+        <li>
+          <a class="active" href="menu.html">Menu</a>
+        </li>
+        <li>
+          <a class="active" href="team.html">Team</a>
+        </li>
+      </ul>
+      <div class="main">
+        <a href="#book-now"><i class="ri-bookmark-fill"></i> Book Now</a>
+        
+      </div>
+    </header>
+    <br>
+    
+<!-- thank you message -->
+
+ <div class="submitted" id="submitted" style="align-self: center;">
+  <div class="submit-overlay">
+  </div>
+  <div class="content">
+    
+    <br>
+    <p>Thank you for your interest! Kindly wait for us to contact you to confirm your reservation details.</p>
+    <div class="btn-holder">
+      <a href="index_durungawan.html"class="popup-btn"> Home </a>
+      <a onclick="togglePopup()" class="popup-btn"> Close </a>
+    </div>
+    
+  </div>
+ </div>
+
+  <!-- form -->
+  <section class="book-now" id="book-now">
+    <div class="image">
+    </div>
+  
+    <div class="form">
+      <h1 class="heading">Reservation</h1>
+      <center><p class="sub-heading">Book a table now</p></center>
+      <div>
+        <form class="form-top">
+          <select>
+            <option value="">Ortigas Branch</option>
+            <option value="">Makati Branch</option>
+            <option value="">Pasay Branch</option>
+            <option value="">Alabang Branch</option>
+            <option value="">BGC Branch</option>
+            <option value="">Cebu Branch</option>
+            <option value="">Davao del Sur Branch</option>
+          </select>
+          <select>
+            <option value="">8-Course Menu</option>
+            <option value="">6-Course Menu</option>
+          </select>
+        </form>
+          <div class="form-holder">
+            <div>
+            <form>
+              <select name="" id="">
+                <option value="">1 person</option>
+                <option value="">2 persons</option>
+                <option value="">4 persons</option>
+                <option value="">6 persons</option>
+                <option value="">8 persons</option>
+                <option value="">10 persons</option>
+                <option value="">10+ persons</option>
+              </select>
+              <select name="" id="">
+                <option value="">10 AM - 12 NN</option>
+                <option value="">12 NN - 2 PM</option>
+                <option value="">6 PM - 8 PM</option>
+              </select>
+              <input type="text" name="" placeholder="Phone">
+            </form>
+            </div>
+            
+            <div>
+            <form>
+              <select name="" id="">
+                <option value="">May 5, 2023</option>
+                <option value="">May 12, 2023</option>
+                <option value="">May 24, 2023</option>
+                <option value="">June 5, 2023</option>
+                <option value="">June 13, 2023</option>
+                <option value="">June 14, 2023</option>
+                <option value="">June 20, 2023</option>
+                <option value="">June 26, 2023</option>
+                <option value="">July 7, 2023</option>
+              </select>
+              <input type="text" name="" id="" placeholder="Name">
+              <input type="email" name="" id="" placeholder="Email">
+            </form>
+            </div>
+          </div>
+  
+          <center><button class="btn" onclick="togglePopup()" id="submit">SUBMIT</button></center>
+        </div>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          <br> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p> -->
+          
+      </div>
+  </section>
+    
+  <!-- branch info -->
+  <!-- <hr> -->
+  <section class="locations" id="locations">
+    <!-- <div class="loc-head">
+      <h1>LOCATIONS</h1>
+    </div> -->
+    <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+      <div class="w3-content">
+    
+        <div class="w3-row w3-center w3-border w3-border-dark-grey">
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Ortigas');" id="myLink">
+            <div class="w3-col s4 tablink w3-hover-red">ORTIGAS</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Makati');">
+            <div class="w3-col s4 tablink w3-hover-red">MAKATI</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Pasay');">
+            <div class="w3-col s4 tablink w3-hover-red">PASAY</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Alabang');" id="myLink">
+            <div class="w3-col s4 tablink w3-hover-red">ALABANG</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'BGC');" id="myLink">
+            <div class="w3-col s4 tablink w3-hover-red">BGC</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Cebu');">
+            <div class="w3-col s4 tablink w3-hover-red">CEBU</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Davao');">
+            <div class="w3-col s4 tablink w3-hover-red">DAVAO</div>
+          </a>
+        </div>
+        <!-- content ng tabs -->
+        <div id="Ortigas" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+                <h1> Ortigas Branch </h1>
+                <h3><i class='bx bxs-map'></i> ADB Ave, Ortigas Center, Pasig, Metro Manila</h3>
+                <br>
+                <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                    <br>(02) 7505-6272 <br>
+                    (02) 7506-5827
+                </p>
+                <br>
+                <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                  <br>(+63) 917-702-8913<br>
+                  (+63) 917-625-8214
+                </p>
+                <br>
+                <p> <i class='bx bx-time'></i> OPENING HOURS
+                  <br>11:00 AM - 8:00 PM
+                </p>
+              
+            </div>
+          </div>
+        </div>
+        <div id="Makati" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+              <h1> Ortigas Branch </h1>
+              <h3><i class='bx bxs-map'></i> ADB Ave, Ortigas Center, Pasig, Metro Manila</h3>
+              <br>
+              <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                  <br>(02) 7505-6272 <br>
+                  (02) 7506-5827
+              </p>
+              <br>
+              <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                <br>(+63) 917-702-8913<br>
+                (+63) 917-625-8214
+              </p>
+              <br>
+              <p> <i class='bx bx-time'></i> OPENING HOURS
+                <br>11:00 AM - 8:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="Pasay" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+              <h1> Conrad Manila </h1>
+              <h3><i class='bx bxs-map'></i> Conrad Manila, Seaside Boulevard corner Coral Way Mall of Asia Complex, Pasay, Luzon 1300 Philippines</h3>
+              <br>
+              <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                  <br>(02) 7505-6272 <br>
+                  (02) 7506-5827
+              </p>
+              <br>
+              <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                <br>(+63) 917-702-8913
+              </p>
+              <br>
+              <p> <i class='bx bx-time'></i> OPENING HOURS
+                <br>11:00 AM - 8:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="Alabang" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+              <h1> Alabang</h1>
+              <h3><i class='bx bxs-map'></i>Commercenter Building, Filinvest Ave. corner,, E Asia Dr, Filinvest Corporate City, Alabang, Muntinlupa, 1781 Metro Manila</h3>
+              <br>
+              <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                  <br>(02) 7505-6272 <br>
+                  (02) 7506-5827
+              </p>
+              <br>
+              <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                <br>(+63) 917-702-8913
+              </p>
+              <br>
+              <p> <i class='bx bx-time'></i> OPENING HOURS
+                <br>11:00 AM - 8:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="BGC" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+              <h1> Bonifacio Global Center </h1>
+              <h3><i class='bx bxs-map'></i> ADB Ave, Ortigas Center, Pasig, Metro Manila</h3>
+              <br>
+              <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                  <br>(02) 7505-6272 <br>
+                  (02) 7506-5827
+              </p>
+              <br>
+              <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                <br>(+63) 917-702-8913<br>
+                (+63) 917-625-8214
+              </p>
+              <br>
+              <p> <i class='bx bx-time'></i> OPENING HOURS
+                <br>11:00 AM - 8:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="Cebu" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+              <h1> Cebu City </h1>
+              <h3><i class='bx bxs-map'></i> ADB Ave, Ortigas Center, Pasig, Metro Manila</h3>
+              <br>
+              <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                  <br>(02) 7505-6272 <br>
+                  (02) 7506-5827
+              </p>
+              <br>
+              <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                <br>(+63) 917-702-8913<br>
+                (+63) 917-625-8214
+              </p>
+              <br>
+              <p> <i class='bx bx-time'></i> OPENING HOURS
+                <br>11:00 AM - 8:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="Davao" class="w3-container menu w3-padding-32 w3-white">
+          <div class="tab">
+            <div class="image">
+              
+            </div>
+            <div class="tab-text">
+              <h1> Davao City </h1>
+              <h3><i class='bx bxs-map'></i> ADB Ave, Ortigas Center, Pasig, Metro Manila</h3>
+              <br>
+              <p> <i class='bx bxs-phone' ></i> TELEPHONE NUMBERS 
+                  <br>(02) 7505-6272 <br>
+                  (02) 7506-5827
+              </p>
+              <br>
+              <p> <i class='bx bx-mobile' ></i> MOBILE NUMBERS 
+                <br>(+63) 917-702-8913<br>
+                (+63) 917-625-8214
+              </p>
+              <br>
+              <p> <i class='bx bx-time'></i> OPENING HOURS
+                <br>11:00 AM - 8:00 AM
+              </p>
+            </div>
+          </div>
+        </div>
+  </section>
+  <section class="footer" id="footer">
+    <span class="footlogo">Durungawan</span>
+    
+    
+    <div class="footer-container">
+      
+      <div>
+        <h3> Navigation Links</h3>
+        <a href="our-story.html" class="footer-link">Our Story</a><br>
+        <a href="featured.html" class="footer-link">Featured</a><br>
+        <a href="menu.html" class="footer-link">Menu</a><br>
+        <a href="team.html" class="footer-link">Team</a><br>
+        <a href="book-now.html" class="footer-link">Reservations</a><br>
+       
+      </div>
+      <div>
+        
+        <h3>Get the latest news and offers from us</h3>
+        <input type="email" placeholder="Enter your email">
+        <ul>
+          <li><a href="" class="bx bxl-twitter"></a></li>
+          <li><a href="" class="bx bxl-instagram"></a></li>
+          <li><a href="" class="bx bxl-facebook-circle"></a></li>
+          <li><a href="" class="bx bxl-linkedin-square"></a></li>
+        </ul>
+        
+        
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <span>+63 995 9616683</span>
+        <span>859 1234</span>
+        <span><a href="mailto:durungawan@gmail.com">durungawan@gmail.com</a></span>
+        <span>durungawan-restaurants.com.ph</span>
+      </div>
+    </div>
+    <br>
+    <p>&copy;2023 Reserved by Syntax Explorer</p>
+  </section>
+<!-- scroll to top -->
+<a href="#"><button class="topbtn" title="Back to Top"><i class="fa-solid fas fa-angle-up"></i></button></a>
+</body>
+<script type="text/javascript" src="script_durungawan.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,256 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durungawan</title>
+  <link href="style_durungawan.css" rel="stylesheet" type="text/css" />
+  <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<style>
+    header{
+        background: #000000;
+		height: 80px;
+    }
+</style>
+
+<body>
+    <header>
+      <div class="bx bx-menu" id="menu-icon">
+        </div>
+      <a href="#home" class="logo"><i class='bx bxs-bowl-hot'></i><span> Durungawan</span></a>
+      <ul class="navbar">
+        <li>
+          <a class="active" href="index_durungawan.html">Home</a>
+        </li>
+        <li>
+          <a class="active" href="#our-story">Our Story</a>
+        </li>
+        <li>
+          <a class="active" href="featured.html">Featured</a>
+        </li>
+        <li>
+          <a class="active" href="menu.html">Menu</a>
+        </li>
+        <li>
+          <a class="active" href="team.html">Team</a>
+        </li>
+      </ul>
+      <div class="main">
+        <a href="book-now.html"><i class="ri-bookmark-fill"></i> Book Now</a>
+          
+      </div>
+    </header>
+
+    <!-- header with the quote -->
+    <br><br><br><br>
+    <section class="ourstorypage">
+      <div class="storybehind">
+        <br><br><br><br><p>"It's only when we approach our craft with an open mind that we can truly create something special."<br>- Chef Margot Santos</p>
+      </div>
+    </section>
+        
+    <!-- Start of the Our Story Page -->
+    <section class="our-story-text2">
+         
+      <!-- Origin -->
+      <div>
+        <h1> Where the Idea Starts</h1><br>
+        <p>
+          Durungawan, a restaurant like no other. Our story began with a simple idea during a lunch with our team: to revolutionize the way we serve food in the Philippines. We wanted to showcase the incredible talent of our chefs and introduce a more profound degustation of our traditional Filipino dishes. And thus, we decided to incorporate molecular gastronomy into our cuisine. We have gone on countless expeditions around the country, immersing ourselves in the cultures and flavors of different regions, and we want to share these experiences with you. Our menu boasts the ingenuity, creativity, and wittiness of our local food. We want our guests to experience a taste of the Philippines like never before.
+        </p><br>
+      </div>
+
+      <!-- image can't upload on VS code po, so I used a link muna, nagkakaroon ng error sa side ko ih-->
+      <div class="our-img">
+        <img src="durungawan_images/ideas.jpg">
+      </div>
+    </section>  
+
+   <!-- Mission, vission and values  -->
+    <section class="our-story3">
+      <div class="our-story-text3">
+        <h1> Our Mission, Vision and Values</h1>
+      </div>
+    
+      <!-- temporary image and can't upload pa rin sa VS code -->
+      <div class="slideshow-container">
+        <!-- First Slider (Mission) -->
+        <div class="ourstoryslides fade">
+          <div class="numbertext">1 / 3</div>
+          <div class="text"><br><h1> Mission </H1><br></div>
+          <div class="text2">
+            <p>
+            To create a unique and unforgettable dining experience that honors our local ingredients and flavors, defamiliarizes the familiar, and celebrates the creativity and innovation of Filipino cuisine. We strive to push the boundaries of traditional cooking and elevate Filipino cuisine to the global stage.
+          </p>
+          </div>
+          <img src="durungawan_images/VMValuesbg.jpg"" style="width:100%">
+        </div>
+        <!-- Second Slider (Vision) -->
+        <div class="ourstoryslides fade">
+          <div class="numbertext">2 / 3</div>
+          <div class="text"><br><h1> Vision </H1><br></div>
+            <div class="text2">
+              <p>
+                To be the leading restaurant in the Philippines that showcases the beauty and richness of Filipino cuisine through the art of molecular gastronomy.
+            </p>
+            </div>
+          <img src="durungawan_images/VMValuesbg.jpg" style="width:100%">
+        </div>
+
+        <!-- Third Slider (Values) -->
+        <div class="ourstoryslides fade">
+          <div class="numbertext">3 / 3</div>
+          <div class="text"><br><h1> Values </H1><br></div>
+            <div class="ex1">
+              <p>
+               1. Passion for Filipino cuisine: We are driven by our love for Filipino food and our commitment to showcasing its potential through molecular gastronomy.     
+              </p><br>
+
+              <p>
+                2. Innovation and creativity: We continuously challenge ourselves to create new and exciting dishes that reimagine traditional Filipino cuisine.
+              </p><br>
+            
+              <p>
+                3. Excellence and attention to detail: We aim to exceed our guests' expectations with exceptional food, service, and ambiance.
+              </p><br>
+            
+              <p>
+                4. Respect for our heritage and environment: We honor the richness of our local culture and ingredients, and strive to promote sustainability and responsible sourcing in all aspects of our operations.
+              </p><br>
+
+              <p>  
+              5. Collaborative teamwork: We value the contributions of each member of our team, and believe that collaboration is essential to achieving our vision and mission.
+              </p><br>
+            
+            
+              </div>
+          <img src="durungawan_images/VMValuesbg.jpg"" style="width:100%">
+        </div>
+  
+        <a class="prev1" onclick="plusSlides(-1)">❮</a>
+        <a class="next1" onclick="plusSlides(1)">❯</a>
+  
+      </div><br>
+  
+      <div style="text-align:center">
+        <span class="ourdot" onclick="currentSlide(1)"></span> 
+        <span class="ourdot" onclick="currentSlide(2)"></span> 
+        <span class="ourdot" onclick="currentSlide(3)"></span> 
+      </div>
+
+  
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("ourstoryslides");
+    let dots = document.getElementsByClassName("ourdot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active1", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active1";
+  }
+  </script>
+      
+    </section>
+    
+      <!-- Unique menu  -->
+      <!-- can't upload the image sa VScode-->
+    <section class="our-story-text2">
+        <div class="our-img">
+          <img src="durungawan_images/unique menu.jpg">
+        </div>
+        <div>
+        <h1> Unique Feature</h1><br>
+        <p>
+          Our most popular and unique menu item is our Adobo as a plated dessert. It's a playful spin on a traditional dish that has become a favorite among our guests. We also offer a variety of dishes that showcase the beauty and richness of regional cuisines.
+        </p>
+      </div>
+    </section>
+      <!-- Impact -->
+    
+      <section class="our-story-text2">
+        <div>
+        <p>
+          We are committed to having a positive impact on our local community and environment. We source our ingredients locally and reduce our environmental impact as much as possible. We want to promote our unique and interesting spin on Filipino dishes, locally and globally, to attract new customers and aid the progress of Durungawan. <br>
+
+          Thank you for taking the time to learn about our story. We look forward to serving you and sharing our love for Filipino cuisine with you at Durungawan.      
+        </p>
+        </div>
+
+        <div class="our-img">
+          <img src="durungawan_images/sisig-no.jpg" style="max-height: 35vh;">
+        </div>
+    </section>
+
+
+<br>
+<section class="footer" id="footer">
+  <span class="footlogo">Durungawan</span>
+  
+  
+  <div class="footer-container">
+    
+    <div>
+      <h3>Navigation Links</h3>
+      <a href="our-story.html" class="footer-link">Our Story</a><br>
+      <a href="featured.html" class="footer-link">Featured</a><br>
+      <a href="menu.html" class="footer-link">Menu</a><br>
+      <a href="team.html" class="footer-link">Team</a><br>
+      <a href="book-now.html" class="footer-link">Reservations</a><br>
+      <a href="" class="footer-link">Syntax Explorer</a><br>
+    </div>
+    <div>
+      
+      <h3>Get the latest news and offers from us</h3>
+      <input type="email" placeholder="Enter your email">
+      <ul>
+        <li><a href="" class="bx bxl-twitter"></a></li>
+        <li><a href="" class="bx bxl-instagram"></a></li>
+        <li><a href="" class="bx bxl-facebook-circle"></a></li>
+        <li><a href="" class="bx bxl-linkedin-square"></a></li>
+      </ul>
+      
+      
+    </div>
+
+    <div>
+      <h3>Contact Us</h3>
+      <span>+63 995 9616683</span>
+      <span>859 1234</span>
+      <span><a href="mailto:durungawan@gmail.com">durungawan@gmail.com</a></span>
+      <span>durungawan-restaurants.com.ph</span>
+    </div>
+  </div>
+  <br>
+  <p>&copy;2023 Reserved by Syntax Explorer</p>
+</section>
+
+<!-- scroll to top -->
+<a href="#"><button class="topbtn" title="Back to Top"><i class="fa-solid fas fa-angle-up"></i></button></a>
+<script type="text/javascript" src="script_durungawan.js"></script>
+</body>
+
+
+</html>
